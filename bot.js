@@ -54,10 +54,10 @@ client.on('message', msg => {
                             } else if (i > Time) {
                                 GuildMember.voice.setChannel(MainChannel)
                             }
-                        }, 700)
+                        }, 900)
                     }
                     
-                    Move()
+                    Move();
                 }
             }
         }
