@@ -26,11 +26,11 @@ client.on('message', msg => {
             msg.delete();
             if (args[0] != null && args[1] != null) {
                 var Target = msg.guild.member(msg.mentions.users.first() || msg.guild.members.fetch(args[0]))
+                var MainChannel = msg.member.voice.channel.id
 
-                if (Target) {
+                if (Target && MainChannel) {
                     var ChannelID = []
                     var server = msg.guild;
-                    var MainChannel = msg.member.voice.channel.id
                     var GuildMember = msg.guild.members.cache.get(Target.user.id)
                     var i = 0
                     var Time = args[1]
