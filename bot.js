@@ -74,4 +74,4 @@ client.on('message', msg => {
 });
 
 
-client.login('<TOKEN>');
+client.login('<TOKEN HERE>');
