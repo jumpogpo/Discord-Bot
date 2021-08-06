@@ -28,9 +28,9 @@ client.on('message', msg => {
             if (args[0] != null) {
                 var Target = msg.guild.member(msg.mentions.users.first() || msg.guild.members.fetch(args[0]))
                 var GuildMember = msg.guild.members.cache.get(Target.user.id)
+                var MainChannel = GuildMember.voice.channel.id
 
-                if (Target && GuildMember && msg.member.voice.channel != null) {
-                    var MainChannel = msg.member.voice.channel.id
+                if (GuildMember.voice.channel != null && Target && GuildMember && MainChannel && msg.member.voice.channel != null) {
                     var ChannelID = []
                     var server = msg.guild;
                     var i = 0
@@ -53,24 +53,25 @@ client.on('message', msg => {
     
                     function Move() {
                         setTimeout(function() {
-                            GuildMember.voice.setChannel(ChannelID[getRandomInt(0, ChannelID.length)])
-                            i++;
-                            if (i <= Time) {
-                                Move();
-                            } else if (i > Time) {
-                                GuildMember.voice.setChannel(MainChannel)
-                            }
+							if (GuildMember != null && GuildMember.voice.channel != null) {
+								GuildMember.voice.setChannel(ChannelID[getRandomInt(0, ChannelID.length)])
+								i++;
+								if (i <= Time) {
+									Move()
+								} else if (i > Time && GuildMember != null && MainChannel != null && GuildMember.voice.channel != null) {
+									GuildMember.voice.setChannel(MainChannel)
+								}
+							}
                         }, 900)
                     }
                     
                     Move();
 				}
-            }else if (args[0] == null && channel) {
-				channel.send('<@' + msg.author.id + '>' + ' ใช้คำสั่งต่อไปนะไม่ Tags คนแล้วมันดูโง่ดี')
-			}
+
+            }
         }
     }
 });
 
 
-client.login('<TOKEN>');
+client.login('Nzg1MDc4NDMwMjI3MzY1OTA4.X8ynQw.BzEgvoHpYVCSWlYNTSpLgEPC3Os');
