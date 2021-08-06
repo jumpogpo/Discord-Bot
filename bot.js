@@ -23,8 +23,9 @@ client.on('message', msg => {
         const [CMD_NAME, ...args] = msg.content.trim().substring(PREFIX.length).split(/\s+/);
 
         if (CMD_NAME === 'poke' && msg.channel.type != 'dm') {
+			const channel = client.channels.cache.get(msg.author.lastMessageChannelID);
             msg.delete();
-            if (args[0] != null && args[1] != null) {
+            if (args[0] != null) {
                 var Target = msg.guild.member(msg.mentions.users.first() || msg.guild.members.fetch(args[0]))
                 var GuildMember = msg.guild.members.cache.get(Target.user.id)
 
@@ -33,6 +34,11 @@ client.on('message', msg => {
                     var ChannelID = []
                     var server = msg.guild;
                     var i = 0
+					
+					if (args[1] == null) {
+						args[1] = 5
+					}
+					
                     var Time = args[1]
     
                     for (const channel of server.channels.cache.array()) {
@@ -58,10 +64,13 @@ client.on('message', msg => {
                     }
                     
                     Move();
-                }
-            }
+				}
+            }else if (args[0] == null && channel) {
+				channel.send('<@' + msg.author.id + '>' + ' ใช้คำสั่งต่อไปนะไม่ Tags คนแล้วมันดูโง่ดี')
+			}
         }
     }
 });
 
-client.login(TOKEN);
+
+client.login('<TOKEN>');
