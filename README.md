@@ -10,4 +10,4 @@
 - fs
 - distube
 
-You need to change token in "setting.json" file
+You need to change the token in the "setting.json" file.
