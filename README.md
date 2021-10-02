@@ -1,14 +1,8 @@
 # Discord-Music-Bot
 
-### Prerequisites
-- ffmpeg
-- Nodejs
+### Requirement
+- Your Discord Webhook token
+- Your email and app password
+- Firebase info
 
-### Module
-- discord.js
-- ytdl-core
-- yt-search
-- fs
-- distube
-
-You need to change the token in the "setting.json" file.
+You need to change the info in the "script.js" file.
