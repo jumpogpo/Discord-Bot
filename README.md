@@ -9,3 +9,5 @@
 - yt-search
 - fs
 - distube
+
+You need to change token in "setting.json" file
