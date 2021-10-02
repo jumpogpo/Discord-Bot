@@ -2,6 +2,7 @@
 
 ### Prerequisites
 - ffmpeg
+- Nodejs
 
 ### Module
 - discord.js
