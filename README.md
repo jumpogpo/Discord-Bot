@@ -1,4 +1,4 @@
-# Portfolio-Website
+# Discord-Bot
 
 ### Prerequisites
 - ffmpeg
